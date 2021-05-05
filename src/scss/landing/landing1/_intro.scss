@@ -1,19 +1,31 @@
 .intro {
   padding: 100px 0px;
   border-bottom: 1px solid $border-color;
+  // background-color: #2C2B67;
+  background: #2C2B67;
+  background: linear-gradient(167.5deg, #2C2B67 63%, white 63%);
 
   .intro-content {
     h1 {
       // font-weight: 400;
+      color: #FFFFFF; 
       line-height: 55px;
       margin-bottom: 30px;
       // strong {
       //     font-weight: 500;
       // }
     }
+    h4 {
+      color: #10D876;
+
+    }
     p {
       font-size: 20px;
       margin-bottom: 50px;
+      color: #FF4E36;
+    }
+    .text-primary{
+      color: #FF4E36 !important;
     }
   }
 }
@@ -81,6 +93,7 @@
     padding: 10px 30px;
     font-weight: 600;
     font-size: 16px;
+    background-color: #FFFFFF;
   }
 }
 
@@ -104,5 +117,9 @@
       position: absolute;
       right: 15px;
     }
+  }
+
+  .form-group label {
+    font-size: 18px;
   }
 }

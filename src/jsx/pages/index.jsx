@@ -139,16 +139,33 @@ function Homepage() {
             <div className="intro">
                 <div className="container">
                     <div className="row justify-content-between align-items-center">
+                        <div className="col-xl-5 col-lg-6 col-12">
+                            <div className="intro-content">
+                                <h1>Swaptoken With <strong className="text-primary">Swap</strong>. <br /> Best price in the world
+
+                            </h1>
+                                <p>Fast and secure way to swap cryptocurrencies</p>
+                            </div>
+
+                            <div className="intro-btn">
+                                <ExternalLink href="https://app.swap.me">
+                                    <button className="btn  btn-primary">Swap Now</button>
+                                </ExternalLink>
+                                <button onClick={() => clipboard.copy("https://buy.swap.me/?ref=" + acct)} className="btn btn-outline-primary"> Copy Referal Link</button>
+
+                            </div>
+
+                        </div>
                         <div className="col-xl-6 col-lg-6 col-12">
                             <div className="intro-form-exchange">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group">
                                         <label className="mr-sm-2">Send</label>
                                         <div className="input-group mb-3">
+                                            <input type="number" name="usd_amount" className="form-control" onChange={handleChange} ref={register({ required: true })} />
                                             <select name='currency' className="form-control">
                                                 <option data-display="busd" value="bitcoin">USDT</option>
                                             </select>
-                                            <input type="number" name="usd_amount" className="form-control" onChange={handleChange} ref={register({ required: true })} />
                                         </div>
 
                                         <div className="intro-content">
@@ -162,10 +179,10 @@ function Homepage() {
                                                     (() => isLoading ? console.log("Async getBalance isLoading") : null)();
                                                     if (data) {
                                                         return (
-                                                            <h6 className="mb-0"> Balance : {parseFloat(ethers.utils.formatEther(data)).toPrecision(4)} </h6>
+                                                            <h4 className="mb-0"> Balance : {parseFloat(ethers.utils.formatEther(data)).toPrecision(4)} </h4>
                                                         )
                                                     }
-                                                    
+
                                                     if (error) {
                                                         console.log(error);
                                                     }
@@ -209,18 +226,18 @@ function Homepage() {
                                         <Async promiseFn={getAccount}>
                                             {({ data, error, isLoading }) => {
                                                 (() => isLoading ? console.log("Async getBalance isLoading") : null)();
-    
+
                                                 if (data) {
                                                     // setAcct(data)
-                                                        return (
-                                                            <div>
-                                                                <div className="d-flex justify-content-between mt-0 align-items-center">
-                                                                    <h6 className="mb-0">Account: {data}</h6>
-                                                                </div>
+                                                    return (
+                                                        <div>
+                                                            <div className="d-flex justify-content-between mt-0 align-items-center">
+                                                                <h6 className="mb-0">Account: {data}</h6>
                                                             </div>
-                                                        )
+                                                        </div>
+                                                    )
                                                 }
-                                                   
+
                                                 if (error) {
                                                     console.log(error);
                                                 }
@@ -232,31 +249,14 @@ function Homepage() {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-xl-5 col-lg-6 col-12">
-                            <div className="intro-content">
-                                <h1>Swaptoken With <strong className="text-primary">Swap</strong>. <br /> Best price in the world
-
-                            </h1>
-                                <p>Fast and secure way to swap cryptocurrencies</p>
-                            </div>
-
-                            <div className="intro-btn">
-                                <ExternalLink href="https://app.swap.me">
-                                    <button className="btn  btn-primary">Swap Now</button>
-                                </ExternalLink>
-                                <button onClick={() => clipboard.copy("https://buy.swap.me/?ref="+acct)} className="btn btn-outline-primary"> Copy Referal Link</button>
-
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>
 
-    
+
             <Footer1 />
         </>
-            
+
     )
 
 }
